@@ -1,17 +1,15 @@
-// src/components/Feed.tsx
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Heart } from 'lucide-react';
-import ReactPlayer from 'react-player';
+import React from "react";
+import { motion } from "framer-motion";
+import { Heart } from "lucide-react";
+import ReactPlayer from "react-player";
 
 // Mock data - in a real app, this would come from an API
 const feedItems = [
-  { type: 'image', url: '/api/placeholder/400/400', id: 1 },
-  { type: 'image', url: '/api/placeholder/400/400', id: 2 },
-  { type: 'image', url: '/api/placeholder/400/400', id: 3 },
-  { type: 'video', url: 'YOUR_VIDEO_URL', id: 4 }, // Add actual video URL
-  { type: 'image', url: '/api/placeholder/400/400', id: 5 },
-  // Add more items as needed
+  { type: "image", url: "/api/placeholder/400/400", id: 1 },
+  { type: "image", url: "/api/placeholder/400/400", id: 2 },
+  { type: "image", url: "/api/placeholder/400/400", id: 3 },
+  { type: "video", url: "YOUR_VIDEO_URL", id: 4 },
+  { type: "image", url: "/api/placeholder/400/400", id: 5 },
 ];
 
 export const Feed = () => {
@@ -43,9 +41,8 @@ const FeedItem = ({ item }) => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       whileHover={{ scale: 0.98 }}
-      transition={{ duration: 0.2 }}
-    >
-      {item.type === 'image' ? (
+      transition={{ duration: 0.2 }}>
+      {item.type === "image" ? (
         <img
           src={item.url}
           alt="feed content"
@@ -66,13 +63,14 @@ const FeedItem = ({ item }) => {
       {/* Like button */}
       <motion.button
         className={`absolute bottom-2 right-2 p-2 rounded-full 
-                   ${isLiked ? 'bg-turquoise-light' : 'bg-white'} 
+                   ${isLiked ? "bg-turquoise-light" : "bg-white"} 
                    shadow-lg`}
         whileTap={{ scale: 0.9 }}
-        onClick={() => setIsLiked(!isLiked)}
-      >
+        onClick={() => setIsLiked(!isLiked)}>
         <Heart
-          className={`w-6 h-6 ${isLiked ? 'text-white fill-current' : 'text-gray-600'}`}
+          className={`w-6 h-6 ${
+            isLiked ? "text-white fill-current" : "text-gray-600"
+          }`}
         />
       </motion.button>
 
@@ -82,8 +80,7 @@ const FeedItem = ({ item }) => {
           className="absolute inset-0 flex items-center justify-center pointer-events-none"
           initial={{ scale: 0, opacity: 0 }}
           animate={{ scale: 1.5, opacity: [0, 1, 0] }}
-          transition={{ duration: 0.8 }}
-        >
+          transition={{ duration: 0.8 }}>
           <Heart className="w-24 h-24 text-white fill-current" />
         </motion.div>
       )}
