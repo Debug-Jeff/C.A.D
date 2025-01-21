@@ -63,8 +63,8 @@ const FeedItem = ({ item }) => {
       {/* Like button */}
       <motion.button
         className={`absolute bottom-2 right-2 p-2 rounded-full 
-                   ${isLiked ? "bg-turquoise-light" : "bg-white"} 
-                   shadow-lg`}
+                    ${isLiked ? "bg-turquoise-light" : "bg-white"} 
+                    shadow-lg`}
         whileTap={{ scale: 0.9 }}
         onClick={() => setIsLiked(!isLiked)}>
         <Heart
